@@ -2,26 +2,11 @@
 <html>
 <head>
     <title>d3</title>
-    <script src="https://d3js.org/d5.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
-    
-    <script>
-        var canvas = d3.select("body")
-            .append("avg")
-            .attr("width", 500)
-            .attr("height", 500);
-        var circle = canvas.append("circle") 
-            .attr("cx", 50)
-            .attr("cy", 50)
-            .attr("r", 25)
-        
-            circle.transition()
-            .duration(1500)
-            .delay(1000)
-            .attr("cx", 250)
-            .each("start", function() {d3.select(this).attr("fill", "red"); });
+    <svg></svg>
 
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
