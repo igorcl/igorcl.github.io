@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:5500/d3c3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body style="background-color: black;">
+    <p style="text-align: center; font-size: 50px; color: blanchedalmond;">Se misturar azul e amarelo, qual a cor obitida? </p>
+    <svg style="position: relative; left: 25%;" width="500" height="400">
+        <circle cx="100" cy="25" r="25" fill="red"></circle>
+        <rect x="400" y="0" width="50" height="50" fill="green"></rect>
+        <ellipse cx="250" cy="200" rx="100" ry="100" fill="rgb(255, 255, 0)"></ellipse>
+        
+    </svg>
+    <h1 style="text-align: center; font-size: 50px; color: blanchedalmond;">respota: correta</h1>
+    <script src="./Page Title_files/d3.v5.min.js.download"></script>
+        <script>
+            d3.select("circle").on("click", function(){
+            d3.select("ellipse").transition()
+            .duration(1500)
+            .attr("fill", "yellow");
+            d3.select("h1").text("respota: errada")
+
+            });
+
+            d3.select("rect").on("click", function(){
+            d3.select("ellipse").transition()
+            .duration(1500)
+            .attr("fill", "yellow");  
+            d3.select("h1").text("respota: correta") 
+            });
+    </script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>
